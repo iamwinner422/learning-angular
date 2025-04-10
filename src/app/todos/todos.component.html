@@ -1,0 +1,14 @@
+<h3>Todos Lists</h3>
+
+<form>
+    <label>Filter Todos</label>
+    <input name="searchTerm" type="text" placeholder="Search Todos..." [(ngModel)]="searchTerm">
+</form>
+
+<ul>
+    @for (todo of todosItems() | filterTodos : searchTerm(); track todo.id) {
+        <li appHighlightCompletedTodo [isCompleted]="todo.completed">
+            <input type="checkbox" [checked]="todo.completed"> <h4>{{todo.title}}</h4>
+        </li>
+    }
+</ul>

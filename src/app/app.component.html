@@ -12,7 +12,13 @@
             <h2>List</h2>
             <li *ngFor="let item of listOfItems">{{ item }}</li>
         </div>
+        <div>
+            <div>
+                <p>Counter: </p>
+            </div>
+        </div>
     </div>
 </main>
-
+<app-form/>
+<app-todos/>
 <router-outlet />

@@ -1,0 +1,38 @@
+<div>
+    <form [formGroup]="formGroup" (ngSubmit)="onFormSubmit()">
+        <div>
+            <label>Name:</label>
+            <input type="text" formControlName="name">
+            @if (name?.invalid && (name?.dirty || name?.touched)) {
+            <div class="alert alert-danger">
+                @if (name?.hasError('required')) {
+                <div>
+                    Name is required.
+                </div>
+                }
+                @if (name?.hasError('minlength')) {
+                <div>
+                    Name must be at least 4 characters long.
+                </div>
+                }
+
+            </div>
+            }
+
+        </div>
+        <div>
+            <label>Role:</label>
+            <input type="text" formControlName="role">
+            @if (role?.invalid && (role?.dirty || role?.touched)) {
+                <div class="alert alert-danger">
+                    @if (role?.hasError('required')) {
+                    <div>
+                        Role is required.
+                    </div>
+                    }
+                </div>
+                }
+        </div>
+        <input type="submit" value="Click Me">
+    </form>
+</div>
